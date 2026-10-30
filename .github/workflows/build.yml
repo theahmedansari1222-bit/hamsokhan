@@ -1,0 +1,36 @@
+name: Generate Static Articles for SEO
+
+on:
+  workflow_dispatch: # گٹ ہب ایکشنز ٹیب سے مینوئل چلانے کے لیے
+  schedule:
+    - cron: '0 0 * * *' # روزانہ رات 12 بجے چلے گا
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # ریپازٹری میں فائلیں محفوظ کرنے کی اجازت
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # مقامی fetch استعمال کرنے کے لیے 18 لازمی ہے
+
+      - name: Run Build Script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node build.js
+
+      - name: Commit and Push Static Pages
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add article-*.html
+          # اگر کوئی نئی فائل بنی ہے تو اسے کمٹ کر کے پش کر دے
+          git commit -m "Auto-generated static articles for SEO" || echo "No changes to commit"
+          git push origin main
