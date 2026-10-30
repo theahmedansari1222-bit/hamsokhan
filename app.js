@@ -87,7 +87,7 @@ async function layout(active) {
     sb.from("settings").select("value").eq("key", "site_name").maybeSingle()
   ]);
   const name = (st && st.value) || "خامہ و خیال";
-  document.title = name;
+  if (!$("meta[name=description]")) document.title = name;
   $("header").innerHTML = `<a class="brand" href="index.html">${esc(name)}</a>`;
   if ($("#foot")) $("#foot").innerHTML = (pg || []).map(p => `<a href="page.html?slug=${esc(p.slug)}">${esc(p.title)}</a>`).join("");
   const on = k => (active === k ? ' class="on"' : "");
