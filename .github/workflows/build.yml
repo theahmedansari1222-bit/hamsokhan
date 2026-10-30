@@ -13,12 +13,12 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # ورژن 4 استعمال کریں
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4 # ورژن 4 استعمال کریں
+        uses: actions/setup-node@v4
         with:
-          node-version: '20' # Node.js کا ورژن 20 استعمال کریں
+          node-version: '20'
 
       - name: Run Build Script
         env:
