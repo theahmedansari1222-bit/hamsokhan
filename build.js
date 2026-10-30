@@ -55,4 +55,4 @@ async function generateStaticPages() {
   }
 }
 
-generateStaticPages();
+generateStaticPages(); 
