@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#FAFAF8">
-<title>خامہ و خیال | اردو تحریریں پڑھیں اور شائع کروائیں · Urdu Writing Platform</title>
+<title>ہم سخن | اردو تحریریں پڑھیں اور شائع کروائیں · Urdu Writing Platform</title>
 <meta name="description" content="اردو کالم، افسانے، مضامین اور شاعری پڑھیں اور اپنی اردو تحریر اشاعت کے لیے بھیجیں۔ Read Urdu columns, stories, essays and poetry, and submit your Urdu writing for publication.">
 <link rel="canonical" href="https://hamsokhan.online/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="خامہ و خیال">
+<meta property="og:site_name" content="ہم سخن">
 <meta property="og:locale" content="ur_PK">
-<meta property="og:title" content="خامہ و خیال | اردو تحریریں پڑھیں اور شائع کروائیں · Urdu Writing Platform">
+<meta property="og:title" content="ہم سخن | اردو تحریریں پڑھیں اور شائع کروائیں · Urdu Writing Platform">
 <meta property="og:description" content="اردو کالم، افسانے، مضامین اور شاعری پڑھیں اور اپنی اردو تحریر اشاعت کے لیے بھیجیں۔ Read Urdu columns, stories, essays and poetry, and submit your Urdu writing for publication.">
 <meta property="og:url" content="https://hamsokhan.online/">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"خامہ و خیال","alternateName":"Khama o Khayal","url":"https://hamsokhan.online/","inLanguage":"ur","description":"Urdu columns, short stories, essays and poetry, with a simple way to submit Urdu writing for publication."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ہم سخن","alternateName":["Hum Sukhan","Hamsokhan"],"url":"https://hamsokhan.online/","inLanguage":"ur","description":"Urdu columns, short stories, essays and poetry, with a simple way to submit Urdu writing for publication."}</script>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <script src="config.js"></script>
@@ -41,7 +41,7 @@ function card(p) {
   return `<article class="card">
     <a class="who" href="writer.html?id=${esc(a.id)}">${av(a)}<span>${esc(a.name)}</span><span class="mut">· ${fdate(p.published_at)}</span></a>
     <a class="row" href="article.html?id=${p.id}">
-      <div><h2>${esc(p.title)}</h2><p class="ex">${esc(p.body.slice(0, 110))}…</p></div>
+      <div><h2>${esc(p.title)}</h2><p class="ex">${esc(excerpt(p.body, 110))}</p></div>
       ${p.cover_url ? `<img class="th" src="${esc(p.cover_url)}" alt="">` : ""}
     </a>
     <div class="meta"><span class="chip">${esc(p.category)}</span><span>${mins(p.body)}</span>
@@ -61,7 +61,7 @@ async function load() {
   posts = data; draw();
 }
 $("#tabs").onclick = e => { const b = e.target.closest("[data-c]"); if (b) { cat = b.dataset.c; tabs(); draw(); } };
-$("#feed").onclick = e => { const b = e.target.closest("[data-share]"); if (b) share("article.html?id=" + b.dataset.share); };
+$("#feed").onclick = e => { const b = e.target.closest("[data-share]"); if (b) { const p = posts.find(x => x.id == b.dataset.share); if (p) sharePost(p); } };
 $("#q").oninput = draw;
 tabs(); layout("home"); load();
 </script>

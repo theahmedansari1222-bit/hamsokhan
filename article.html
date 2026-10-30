@@ -32,7 +32,7 @@
     <div class="body">${paras(p.body)}</div>
     <a class="bio" href="writer.html?id=${esc(a.id)}" style="display:block;text-decoration:none">
       <div class="who">${av(a)}<b>${esc(a.name)}</b></div><p>${esc(a.bio)}</p></a>`;
-  $("#sh").onclick = () => share(location.href);
+  $("#sh").onclick = () => sharePost(p, a);
   await L; document.title = p.title + " — " + document.title;
   document.head.append(Object.assign(document.createElement("meta"), { name: "description", content: p.body.replace(/\s+/g, " ").slice(0, 155) }),
     Object.assign(document.createElement("link"), { rel: "canonical", href: location.origin + location.pathname + "?id=" + p.id }));

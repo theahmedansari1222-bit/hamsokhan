@@ -73,7 +73,17 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 const ud = s => String(s).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
 const fdate = d => ud(new Date(d).toLocaleDateString("ur-PK", { day: "numeric", month: "long" }));
 const mins = t => ud(Math.max(1, Math.round(String(t).trim().split(/\s+/).length / 150))) + " منٹ";
-const av = a => `<span class="av">${a && a.photo_url ? `<img src="${esc(a.photo_url)}" alt="">` : esc((a && a.name || "ل")[0])}</span>`;
+const initial = n => {
+  const w = String(n || "").trim().split(/\s+/).filter(x => x && !/^(ڈاکٹر|ڈاکٹرہ|پروفیسر|محترم|محترمہ|جناب|مولانا|سید|سیدہ|حکیم|بیگم)$/.test(x));
+  return (w[0] || "ل")[0];
+};
+const excerpt = (t, n) => {
+  const c = String(t).replace(/\s+/g, " ").trim();
+  if (c.length <= n) return c;
+  const k = c.lastIndexOf(" ", n);
+  return c.slice(0, k > n * 0.6 ? k : n) + "…";
+};
+const av = a => `<span class="av">${a && a.photo_url ? `<img src="${esc(a.photo_url)}" alt="">` : esc(initial(a && a.name))}</span>`;
 const avb = a => av(a).replace('class="av"', 'class="av big"');
 const qid = k => new URLSearchParams(location.search).get(k);
 const ICON = {
@@ -86,7 +96,7 @@ async function layout(active) {
     sb.from("pages").select("slug,title").eq("visible", true).order("sort"),
     sb.from("settings").select("value").eq("key", "site_name").maybeSingle()
   ]);
-  const name = (st && st.value) || "خامہ و خیال";
+  const name = (st && st.value) || "ہم سخن";
   if (!$("meta[name=description]")) document.title = name;
   $("header").innerHTML = `<a class="brand" href="index.html">${esc(name)}</a>`;
   if ($("#foot")) $("#foot").innerHTML = (pg || []).map(p => `<a href="page.html?slug=${esc(p.slug)}">${esc(p.title)}</a>`).join("");
@@ -100,11 +110,18 @@ function toast(m) {
   const t = document.createElement("div"); t.className = "toast"; t.textContent = m;
   document.body.append(t); setTimeout(() => t.remove(), 2200);
 }
-function share(url) {
+function share(url, title, text) {
   const u = new URL(url, location.href).href;
-  if (navigator.share) navigator.share({ url: u }).catch(() => {});
-  else if (navigator.clipboard) navigator.clipboard.writeText(u).then(() => toast("لنک کاپی ہو گیا"), () => toast(u));
+  if (navigator.share) navigator.share({ title, text, url: u }).catch(() => {});
+  else if (navigator.clipboard) navigator.clipboard.writeText((text ? text + "\n" : "") + u).then(() => toast("متن اور لنک کاپی ہو گیا"), () => toast(u));
   else toast(u);
+}
+// Share = title, writer, a short excerpt (first lines for poetry) and the link.
+function sharePost(p, author) {
+  const a = author || p.author || {};
+  const lines = String(p.body).split("\n").map(s => s.trim()).filter(Boolean);
+  const ex = p.category === "شاعری" ? lines.slice(0, 4).join("\n") + (lines.length > 4 ? "\n…" : "") : excerpt(p.body, 160);
+  share("article.html?id=" + p.id, p.title, `${p.title}\n✍️ ${a.name || ""}\n\n${ex}\n\nپوری تحریر پڑھیں:`);
 }
 
 // paragraphs: blank line = new paragraph, single line break is kept (good for poetry)

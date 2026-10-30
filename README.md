@@ -1,4 +1,4 @@
-# Khama o Khayal (خامہ و خیال) — Urdu Writing & Publishing Platform
+# Hum Sukhan (ہم سخن) — Urdu Writing & Publishing Platform
 
 **Read Urdu columns, short stories, essays and poetry, and submit your own Urdu writing for publication.**
 
@@ -11,7 +11,7 @@
 
 ## What is this?
 
-Khama o Khayal is a free-to-read, mobile-first website for Urdu literature. Anyone can read published Urdu writing, and any writer can send an Urdu column, story, essay or poem to the editor through a simple web form. No account or sign-up is needed. Every submission is read by the editor before it is published, and each piece appears with the writer's name and short introduction.
+Hum Sukhan is a free-to-read, mobile-first website for Urdu literature. Anyone can read published Urdu writing, and any writer can send an Urdu column, story, essay or poem to the editor through a simple web form. No account or sign-up is needed. Every submission is read by the editor before it is published, and each piece appears with the writer's name and short introduction.
 
 The site is designed for Urdu from the ground up: right-to-left layout, the Nastaliq script (Jameel Noori Nastaleeq), Urdu numerals and dates, and comfortable line spacing for reading on a phone. There are no ads and no tracking scripts.
 
@@ -125,4 +125,4 @@ All writing published on the site remains the property of its respective authors
 
 ---
 
-**خامہ و خیال** ایک اردو ادبی پلیٹ فارم ہے جہاں آپ اردو کالم، افسانے، مضامین اور شاعری پڑھ سکتے ہیں اور اپنی تحریر اشاعت کے لیے بھیج سکتے ہیں۔
+**ہم سخن** ایک اردو ادبی پلیٹ فارم ہے جہاں آپ اردو کالم، افسانے، مضامین اور شاعری پڑھ سکتے ہیں اور اپنی تحریر اشاعت کے لیے بھیج سکتے ہیں۔

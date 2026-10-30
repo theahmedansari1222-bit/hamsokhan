@@ -19,7 +19,7 @@
 <script>
 const card = p => `<article class="card">
   <a class="row" href="article.html?id=${p.id}">
-    <div><h2>${esc(p.title)}</h2><p class="ex">${esc(p.body.slice(0, 110))}…</p></div>
+    <div><h2>${esc(p.title)}</h2><p class="ex">${esc(excerpt(p.body, 110))}</p></div>
     ${p.cover_url ? `<img class="th" src="${esc(p.cover_url)}" alt="">` : ""}
   </a>
   <div class="meta"><span class="chip">${esc(p.category)}</span><span>${fdate(p.published_at)} · ${mins(p.body)}</span>
@@ -37,8 +37,8 @@ const card = p => `<article class="card">
       <div class="meta" style="margin-bottom:8px">${ud(list.length)} تحریریں</div>
       <button class="b2" id="ps">پروفائل شیئر کریں</button></div>` +
     (list.map(card).join("") || '<p class="mut">ابھی کوئی تحریر شائع نہیں ہوئی۔</p>');
-  $("#ps").onclick = () => share(location.href);
-  $("#m").onclick = e => { const b = e.target.closest("[data-share]"); if (b) share("article.html?id=" + b.dataset.share); };
+  $("#ps").onclick = () => share(location.href, a.name, a.name + "\n" + excerpt(a.bio, 120) + "\n\nتحریریں پڑھیں:");
+  $("#m").onclick = e => { const b = e.target.closest("[data-share]"); if (b) { const p = list.find(x => x.id == b.dataset.share); if (p) sharePost(p, a); } };
   await L; document.title = a.name + " — " + document.title;
 })();
 </script>
