@@ -6,7 +6,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/2.2 Jameel,"No
 a{color:inherit}
 .wrap{max-width:640px;margin:0 auto;padding:0 20px}
 .mut{color:var(--mut)}
-.sr{position:absolute;left:-9999px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 header{padding:12px 0 4px}
 .brand{font-size:34px;line-height:2;text-decoration:none}
 .search{width:100%;min-height:52px;padding:0 50px 0 16px;border:1px solid #C9CAC4;border-radius:26px;font:inherit;font-size:18px;color:var(--ink);
