@@ -50,6 +50,7 @@ Your email address is visible only to the editor and is never published.
 - Writer profile pages with all of a writer's published work
 - Reading-time estimate and one-tap sharing
 - Fast, light pages that work well on slow mobile connections
+- Can be installed on a phone's home screen like an app
 
 **For the editor (admin panel)**
 - Inbox for reader submissions: read, return, approve or reject
@@ -90,6 +91,8 @@ Everything lives in the repository root. There are no folders to create, which m
 | `jameel.woff` | Urdu Nastaliq font |
 | `supabase.sql` | Database tables, security policies and starter content |
 | `robots.txt`, `sitemap.xml` | Search engine files |
+| `manifest.json`, `sw.js` | Makes the site installable on a phone like an app |
+| `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`, `favicon.ico` | Logo and app icons |
 | `keep-alive.yml` | Optional scheduled ping that stops the free Supabase project from pausing (copy it to `.github/workflows/`) |
 
 ## Run your own copy

@@ -126,3 +126,6 @@ function sharePost(p, author) {
 
 // paragraphs: blank line = new paragraph, single line break is kept (good for poetry)
 const paras = t => String(t).split(/\n\s*\n/).map(p => `<p>${esc(p.trim()).replace(/\n/g, "<br>")}</p>`).join("");
+
+// Installable app: the service worker makes the "Install app" option appear in Chrome.
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
