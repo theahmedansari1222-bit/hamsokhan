@@ -111,7 +111,7 @@ function toast(m) {
   document.body.append(t); setTimeout(() => t.remove(), 2200);
 }
 function share(url, title, text) {
-  const u = new URL(url, location.href).href;
+  const u = new URL(url, document.baseURI).href;
   if (navigator.share) navigator.share({ title, text, url: u }).catch(() => {});
   else if (navigator.clipboard) navigator.clipboard.writeText((text ? text + "\n" : "") + u).then(() => toast("متن اور لنک کاپی ہو گیا"), () => toast(u));
   else toast(u);
@@ -121,7 +121,7 @@ function sharePost(p, author) {
   const a = author || p.author || {};
   const lines = String(p.body).split("\n").map(s => s.trim()).filter(Boolean);
   const ex = p.category === "شاعری" ? lines.slice(0, 4).join("\n") + (lines.length > 4 ? "\n…" : "") : excerpt(p.body, 160);
-  share("article.html?id=" + p.id, p.title, `${p.title}\n✍️ ${a.name || ""}\n\n${ex}\n\nپوری تحریر پڑھیں:`);
+  share("p/" + p.id + ".html", p.title, `${p.title}\n✍️ ${a.name || ""}\n\n${ex}\n\nپوری تحریر پڑھیں:`);
 }
 
 // paragraphs: blank line = new paragraph, single line break is kept (good for poetry)

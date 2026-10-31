@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAFAF8">
+<title>صفحہ نہیں ملا</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="/">ہم سخن</a></header>
+  <main id="m"><p class="mut" id="msg">صفحہ نہیں ملا۔</p><p><a href="/">ہوم پر واپس جائیں</a></p></main>
+</div>
+<script>
+// A new post's own page is built within the hour; until then send readers to the live version.
+var m = location.pathname.match(/^\/p\/(\d+)\.html$/);
+if (m) { document.getElementById("msg").textContent = "لوڈ ہو رہا ہے…"; location.replace("/article.html?id=" + m[1]); }
+</script>
+</body>
+</html>

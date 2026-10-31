@@ -39,7 +39,7 @@
   $("#sh").onclick = () => sharePost(p, a);
   await L; document.title = p.title + " — " + document.title;
   document.head.append(Object.assign(document.createElement("meta"), { name: "description", content: p.body.replace(/\s+/g, " ").slice(0, 155) }),
-    Object.assign(document.createElement("link"), { rel: "canonical", href: location.origin + location.pathname + "?id=" + p.id }));
+    Object.assign(document.createElement("link"), { rel: "canonical", href: location.origin + "/p/" + p.id + ".html" }));
 })();
 </script>
 </body>

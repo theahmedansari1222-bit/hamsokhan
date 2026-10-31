@@ -93,6 +93,9 @@ Everything lives in the repository root. There are no folders to create, which m
 | `robots.txt`, `sitemap.xml` | Search engine files |
 | `manifest.json`, `sw.js` | Makes the site installable on a phone like an app |
 | `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`, `favicon.ico` | Logo and app icons |
+| `build-posts.mjs`, `build-posts.yml` | Hourly GitHub Action: builds `p/ID.html` for every published post (own title, excerpt and image for WhatsApp and Google) and refreshes `sitemap.xml`. Copy `build-posts.yml` to `.github/workflows/` |
+| `p/` | Generated post pages (created automatically, do not edit by hand) |
+| `404.html` | Sends readers to the live article page if a post page is not built yet |
 | `keep-alive.yml` | Optional scheduled ping that stops the free Supabase project from pausing (copy it to `.github/workflows/`) |
 
 ## Run your own copy
