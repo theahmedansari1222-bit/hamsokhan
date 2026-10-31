@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hamsokhan.online/</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/writers.html</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/submit.html</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/page.html?slug=about</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/page.html?slug=guidelines</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/page.html?slug=privacy</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/page.html?slug=terms</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://hamsokhan.online/page.html?slug=contact</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://hamsokhan.online/</loc></url>
+  <url><loc>https://hamsokhan.online/writers.html</loc></url>
+  <url><loc>https://hamsokhan.online/submit.html</loc></url>
+  <url><loc>https://hamsokhan.online/page.html?slug=about</loc></url>
+  <url><loc>https://hamsokhan.online/page.html?slug=guidelines</loc></url>
+  <url><loc>https://hamsokhan.online/page.html?slug=privacy</loc></url>
+  <url><loc>https://hamsokhan.online/page.html?slug=terms</loc></url>
+  <url><loc>https://hamsokhan.online/page.html?slug=contact</loc></url>
+  <url><loc>https://hamsokhan.online/p/4.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://hamsokhan.online/p/3.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://hamsokhan.online/p/2.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://hamsokhan.online/writer.html?id=2</loc></url>
+  <url><loc>https://hamsokhan.online/writer.html?id=1</loc></url>
 </urlset>
